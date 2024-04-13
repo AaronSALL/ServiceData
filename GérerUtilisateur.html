@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gestion des Utilisateurs</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="interface.css" media="screen" type="text/css"/>
+	<link rel="stylesheet" href="tableau.css" media="screen" type="text/css"/>
+</head>
+</head>
+<body>
+<div id="header">
+	<span>Gestion Des Utilisateurs</span>
+</div>
+<div id="menu">
+	<div><a href="Accueil.html">Accueil</a></div>
+	<div><a href="GérerPC.html">Gestion des PCs</a></div>
+	<div><a href="EnregistrerPC.html">Enregistrement des PCs</a></div>
+	<div><a href="GérerUtilisateur.html">Gestion des utilisateurs</a></div>
+	<div><a href="EnregistrerUtilisateur.html">Enregistrement des utilisateurs</a></div>
+	<div><a href="Connexion.html">Se déconnecter</a></a></div>
+</div>
+	<table id="myTable2">
+		<thead>
+		  <tr>
+			<th>ID De L'Utilisateur</th>
+			<th>Nom</th>
+			<th>Prénom</th>
+			<th>Téléphone</th>
+			<th>Email</th>
+			<th>Département</th>
+		  </tr>
+		</thead>
+		<tbody id="tableBody2">
+		  <!-- Code servant d'emplacement où les données seront enregistrées -->
+		</tbody>
+	</table>
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+		// Code pour récupérer les données du stockage de données
+		var formData2 = JSON.parse(localStorage.getItem("formData2")) || [];
+	  
+		// Code qui va prendre en compte le tableau
+		var tableBody2 = document.getElementById("tableBody2");
+	  
+		// Code qui sert de boucle pour créer les lignes et colonnes du tableau pour les données sauvegardées
+		formData2.forEach(function(data) {
+		  var newRow2 = tableBody2.insertRow();
+		  newRow2.insertCell().textContent = data.idutilisateur;
+		  newRow2.insertCell().textContent = data.nom;
+		  newRow2.insertCell().textContent = data.prénom;
+		  newRow2.insertCell().textContent = data.téléphone;
+		  newRow2.insertCell().textContent = data.email;
+		  newRow2.insertCell().textContent = data.département;
+		});
+	  });
+	</script>
+<footer>
+	<p>Copyright © 2024 - Tous Droits Réservés - ServiceData<br></p>
+</footer>
+</body>
+</html>

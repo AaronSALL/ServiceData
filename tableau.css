@@ -1,0 +1,29 @@
+table,
+th,
+td {
+	border: 1px solid rgb(6, 1, 77);
+	border-collapse: collapse;
+	padding: 5px;
+	background-color: white;
+}
+
+th {
+	background-color: rgb(6, 1, 77);
+	color: white;
+}
+
+table {
+	width: 95%;
+	margin-left: 30px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.red {
+	color: red;
+	text-align: right;
+}
+
+.black {
+	color: rgb(0, 95, 139);
+	text-align: right;
+}

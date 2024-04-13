@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gestion des Utilisateurs</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="interface.css" media="screen" type="text/css"/>
+	<link rel="stylesheet" href="tableau.css" media="screen" type="text/css"/>
+</head>
+</head>
+<body>
+<div id="header">
+	<span>Enregistrement Des Utilisateurs</span>
+</div>
+<div id="menu">
+	<div><a href="Accueil.html">Accueil</a></div>
+	<div><a href="GérerPC.html">Gestion des PCs</a></div>
+	<div><a href="EnregistrerPC.html">Enregistrement des PCs</a></div>
+	<div><a href="GérerUtilisateur.html">Gestion des Utilisateurs</a></div>
+	<div><a href="EnregistrerUtilisateur.html">Enregistrement des Utilisateurs</a></div>
+	<div><a href="Connexion.html">Se Déconnecter</a></a></div>
+</div>
+	<form id="myForm2" action="GérerUtilisateur.html" method="get">
+	<fieldset>
+	<legend>Informations</legend>
+		<label for="idutilisateur">ID De L'Utilisateur</label><br>
+		<input type="text" placeholder="Entrer Votre Identifiant Utilisateur" id="idutilisateur" name="idutilisateur"><br>
+		<label for="nom">Nom</label><br>
+		<input type="text" placeholder="Entrer Votre Nom D'Utilisateur" id="nom" name="nom"><br><br>
+	
+		<label for="prénom">Prénom</label><br>
+		<input type="text" placeholder="Entrer Votre Prénom D'Utilisateur" id="prénom" name="prénom"><br>
+		<label for="téléphone">Téléphone</label><br>
+		<input type="text" placeholder="Entrer Votre Numéro De Téléphone" id="téléphone" name="téléphone"><br><br>
+	
+		<label for="email">Email</label><br>
+		<input type="text" placeholder="Entrer Votre Adresse Mail" id="email" name="email"><br>
+		<label for="département">Département</label><br>
+		<input type="text" placeholder="Entrer Votre Département" id="département" name="département"><br><br>
+	
+		<input type="reset" value="Annuler"/> <input type="submit" onclick="saveData2()" value='Valider'/>
+	</fieldset>
+	</form>
+	<script>
+		function saveData2() {
+		  var idutilisateur = document.getElementById("idutilisateur").value;
+		  var nom = document.getElementById("nom").value;
+		  var prénom = document.getElementById("prénom").value;
+		  var téléphone = document.getElementById("téléphone").value;
+		  var email = document.getElementById("email").value;
+		  var département = document.getElementById("département").value;
+		
+		  // Code pour récupérer les données existantes
+		  var existingData2 = JSON.parse(localStorage.getItem("formData2")) || [];
+		
+		  // Code pour ajouter les données dans un tableau
+		  existingData2.push({ idutilisateur: idutilisateur, nom: nom, prénom: prénom, email: email, téléphone: téléphone, département: département});
+		
+		  // Code pour enregistrer dans un stockage de données
+		  localStorage.setItem("formData2", JSON.stringify(existingData2));
+		
+		  // Code pour libérer des champs libres après avoir sauvegarder les données
+		  document.getElementById("idutilisateur").value = "";
+		  document.getElementById("nom").value = "";
+		  document.getElementById("prénom").value = "";
+		  document.getElementById("téléphone").value = "";
+		  document.getElementById("email").value = "";
+		  document.getElementById("département").value = "";
+		
+		  alert("Vos Informations ont été Enregistrées");
+		}
+	</script>
+<footer>
+	<p>Copyright © 2024 - Tous Droits Réservés - ServiceData<br></p>
+</footer>
+</body>
+</html>

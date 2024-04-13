@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Enregistrement des PCs</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="interface.css" media="screen" type="text/css"/>
+	<link rel="stylesheet" href="tableau.css" media="screen" type="text/css"/>
+</head>
+</head>
+<body>
+<div id="header">
+	<span>Enregistrement Des PCs</span>
+</div>
+<div id="menu">
+	<div><a href="Accueil.html">Accueil</a></div>
+	<div><a href="GérerPC.html">Gestion des PCs</a></div>
+	<div><a href="EnregistrerPC.html">Enregistrement des PCs</a></div>
+	<div><a href="GérerUtilisateur.html">Gestion des Utilisateurs</a></div>
+	<div><a href="EnregistrerUtilisateur.html">Enregistrement des Utilisateurs</a></div>
+	<div><a href="Connexion.html">Se Déconnecter</a></a></div>
+</div>
+	<form id="myForm" action="GérerPC.html" method="get">
+	<fieldset>
+	<legend>Données</legend>
+	<label for="idpc">ID Du PC</label><br>
+	<input type="text" placeholder="Entrer L'Identifiant de Votre PC" id="idpc" name="idpc"><br>
+	<label for="nompc">Nom Du PC</label><br>
+	<input type="text" placeholder="Entrer Le Nom de Votre PC" id="nompc" name="nompc"><br><br>
+
+	<label for="type">Type De Système</label><br>
+	<input type="text" placeholder="Entrer Le Type de Machine" id="type" name="type"><br>
+	<label for="version">Version De Système</label><br>
+	<input type="text" placeholder="Entrer La Version de Système" id="version" name="version"><br><br>
+
+	<label for="installation">Date D'installation</label><br>
+	<input type="text" placeholder="Entrer La Date D'Installation" id="installation" name="installation"><br>
+	<label for="remarque">Remarque</label><br>
+	<input type="text" placeholder="Entrer Votre Remarque" id="remarque" name="remarque"><br>
+	<input type="reset" value="Annuler"/> <input type="submit" onclick="saveData()" value='Valider'/>
+    </fieldset>
+	</form>
+    <script>
+	    function saveData() {
+	      var idpc = document.getElementById("idpc").value;
+	      var nompc = document.getElementById("nompc").value;
+	      var type = document.getElementById("type").value;
+	      var version = document.getElementById("version").value;
+	      var installation = document.getElementById("installation").value;
+	      var remarque = document.getElementById("remarque").value;
+
+		  // Code pour récupérer les données existantes 
+	      var existingData = JSON.parse(localStorage.getItem("formData")) || [];
+		  
+		  // Code pour ajouter les données dans un tableau
+	      existingData.push({ idpc: idpc, nompc: nompc, type: type, version: version, installation: installation, remarque: remarque  });
+		
+		  // Code pour enregistrer dans un stockage de données
+	      localStorage.setItem("formData", JSON.stringify(existingData));
+		  
+		  // Code pour libérer des champs libres après avoir sauvegarder les données
+	      document.getElementById("idpc").value = "";
+	      document.getElementById("nompc").value = "";
+	      document.getElementById("type").value = "";
+	      document.getElementById("version").value = "";
+	      document.getElementById("installation").value = "";
+	      document.getElementById("remarque").value = "";
+		
+	    alert("Vos Données ont été Enregistrées");
+	}
+    </script>
+<footer>
+	<p>Copyright © 2024 - Tous Droits Réservés - ServiceData<br></p>
+</footer>
+</body>
+</html>

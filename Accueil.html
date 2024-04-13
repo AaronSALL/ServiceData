@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Accueil</title>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="interface.css" media="screen" type="text/css"/>
+	<link rel="stylesheet" href="tableau.css" media="screen" type="text/css"/>
+</head>
+</head>
+<body>
+	<div id="header">
+	<span>Accueil</span>
+	</div>
+<div id="menu">
+		<div><a href="Accueil.html">Accueil</a></div>
+		<div><a href="GérerPC.html">Gestion des PCs</a></div>
+		<div><a href="EnregistrerPC.html">Enregistrement des PCs</a></div>
+		<div><a href="GérerUtilisateur.html">Gestion des Utilisateurs</a></div>
+		<div><a href="EnregistrerUtilisateur.html">Enregistrement des Utilisateurs</a></div>
+		<div><a href="Connexion.html">Se Déconnecter</a></a></div>
+</div>
+<div id="contenu">
+	<div id="welcomeMessage"></div>
+</div>
+<script>
+	// Code pour obtenir le paramètre d'URL à partir du nom de l'utilisateur
+	function getUrlParameter(name) {
+	  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+	  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+	  var results = regex.exec(location.search);
+	  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+	};
+
+	// Code pour obtenir le nom d'utilisateur depuis le paramètre d'URL
+	var username = getUrlParameter('username');
+	
+	// Code créant le message de bonjour avec le nom d'utilisateur
+	document.getElementById('welcomeMessage').innerHTML = "Bonjour " + username + ", Bienvenue sur ServiceData";
+</script>
+<footer>
+	<p>Copyright © 2024 - Tous Droits Réservés - ServiceData<br></p>
+</footer>
+</body>
+</html>
